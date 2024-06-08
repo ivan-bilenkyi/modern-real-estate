@@ -1,6 +1,8 @@
 import {Route, Routes} from "react-router-dom";
 import {lazy} from "react";
 import {AppLayout} from "./components/AppLayout.jsx";
+import {RestrictedRoute} from "./components/RestrictedRoute.jsx";
+import {PrivateRoute} from "./components/PrivateRoute.jsx";
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const SignIn = lazy(() => import('./pages/SignIn.jsx'));
@@ -14,10 +16,10 @@ export default function App() {
         <Routes>
             <Route path="/" element={<AppLayout />}>
                 <Route index element={<Home />} />
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/sign-in" element={<RestrictedRoute component={<SignIn />} redirectTo="/" />} />
+                <Route path="/sign-up" element={<RestrictedRoute component={<SignUp />} redirectTo="/" />} />
+                <Route path="/profile" element={<PrivateRoute component={<Profile />} redirectTo="/" />} />
             </Route>
         </Routes>
     )
