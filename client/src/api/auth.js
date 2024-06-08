@@ -9,3 +9,13 @@ export const signup = async (formData) => {
         return error
     }
 }
+
+export const signin = async (formData) => {
+    try {
+        const {data} = await axios.post('http://localhost:3000/api/auth/signin', formData);
+        console.log(data)
+        return data
+    } catch (error) {
+        return error
+    }
+}
