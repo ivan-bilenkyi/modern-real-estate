@@ -1,6 +1,6 @@
-import {Logo} from "./Logo.jsx";
 import {FormSearch} from "./Forms/FormSearch.jsx";
 import {NavBar} from "./NavBar/NavBar.jsx";
+import {Logo} from "./Logo.jsx";
 
 export default function Header() {
     return (
