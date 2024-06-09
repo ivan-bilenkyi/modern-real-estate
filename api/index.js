@@ -22,8 +22,11 @@ const __dirname = path.resolve();
 
 const app = express();
 
-app.use(cors());
 app.use(cookieParser());
+app.use(cors({
+    origin: true,
+    credentials: true,
+}));
 app.use(express.json());
 
 app.listen(3000, () => {
