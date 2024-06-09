@@ -19,7 +19,7 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/sign-in" element={<RestrictedRoute component={SignIn} redirectTo="/" />} />
                 <Route path="/sign-up" element={<RestrictedRoute component={SignUp} redirectTo="/" />} />
-                <Route path="/profile" element={<PrivateRoute component={<Profile />} redirectTo="/" />} />
+                <Route path="/profile" element={<PrivateRoute component={<Profile />} redirectTo="/sign-in" />} />
             </Route>
         </Routes>
     )
