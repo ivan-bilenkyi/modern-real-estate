@@ -9,6 +9,7 @@ import {
 import { app } from '../firebase';
 import {selectCurrentUser, selectError, selectLoading} from "../redux/user/selectors.js";
 import {deleteUser, signOut, updateUser} from "../redux/user/api.js";
+import {Link} from "react-router-dom";
 
 // firebase storage
 // allow read;
@@ -136,6 +137,9 @@ export default function Profile() {
                 >
                     {loading ? 'Loading...' : 'Update'}
                 </button>
+                <Link className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95' to={"/create-listing"}>
+                    Create Listing
+                </Link>
             </form>
             <div className='flex justify-between mt-5'>
                 <button
