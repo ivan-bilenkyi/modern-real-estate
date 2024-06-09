@@ -42,7 +42,18 @@ export const updateUser = createAsyncThunk(
         console.log(formData);
         try {
             const result = await axios.post(`http://localhost:3000/api/user/update/${id}`, formData);
-            console.log(result)
+            return result.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);
+
+export const deleteUser = createAsyncThunk(
+    'user/deleteUser',
+    async ({id}, thunkAPI) => {
+        try {
+            const result = await axios.delete(`http://localhost:3000/api/user/delete/${id}`);
             return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

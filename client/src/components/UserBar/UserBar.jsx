@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 export const UserBar = () => {
     const currentUser = useSelector(selectCurrentUser);
     return (
-            <li className=' text-slate-700 hover:underline'>
+            <li className='text-slate-700 hover:underline'>
                 <Link to='/profile'>
                     {currentUser ? (
                         <img

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {signin, signInWithGoogle, updateUser} from './api.js';
+import {deleteUser, signin, signInWithGoogle, updateUser} from './api.js';
 
 const initialState = {
     currentUser: null,
@@ -45,6 +45,18 @@ const authSlice = createSlice({
                 state.error = null;
             })
             .addCase(updateUser.rejected, (state, action) => {
+                state.error = action.payload;
+                state.loading = false;
+            })
+            .addCase(deleteUser.pending, state => {
+                state.loading = true;
+            })
+            .addCase(deleteUser.fulfilled, (state, action) => {
+                state.currentUser = null;
+                state.loading = false;
+                state.error = null;
+            })
+            .addCase(deleteUser.rejected, (state, action) => {
                 state.error = action.payload;
                 state.loading = false;
             })

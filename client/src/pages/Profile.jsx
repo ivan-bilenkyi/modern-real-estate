@@ -8,7 +8,7 @@ import {
 } from 'firebase/storage';
 import { app } from '../firebase';
 import {selectCurrentUser, selectError, selectLoading} from "../redux/user/selectors.js";
-import {updateUser} from "../redux/user/api.js";
+import {deleteUser, updateUser} from "../redux/user/api.js";
 
 // firebase storage
 // allow read;
@@ -62,10 +62,14 @@ export default function Profile() {
         setFormData({ ...formData, [e.target.id]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit =  (e) => {
         e.preventDefault();
         dispatch(updateUser({ id: currentUser._id, formData }));
     };
+
+    const handleDeleteUser = () => {
+        dispatch(deleteUser({ id: currentUser._id }));
+    }
 
     return (
         <div className='p-3 max-w-lg mx-auto'>
@@ -130,8 +134,13 @@ export default function Profile() {
                 </button>
             </form>
             <div className='flex justify-between mt-5'>
-                <span className='text-red-700 cursor-pointer'>Delete account</span>
-                <span className='text-red-700 cursor-pointer'>Sign out</span>
+                <button
+                    onClick={handleDeleteUser}
+                    className='text-red-700 cursor-pointer hover:underline'
+                >
+                    Delete account
+                </button>
+                <button className='text-red-700 cursor-pointer hover:underline'>Sign out</button>
             </div>
             <p className='text-red-700 mt-5'>{error ? error : ''}</p>
             {/*<p className='text-green-700 mt-5'>*/}
