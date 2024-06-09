@@ -60,3 +60,15 @@ export const deleteUser = createAsyncThunk(
         }
     }
 );
+
+export const signOut = createAsyncThunk(
+    'user/signOut',
+    async (_, thunkAPI) => {
+        try {
+            const result = await axios('http://localhost:3000/api/auth/signout');
+            return result.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);

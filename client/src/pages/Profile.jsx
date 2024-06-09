@@ -8,7 +8,7 @@ import {
 } from 'firebase/storage';
 import { app } from '../firebase';
 import {selectCurrentUser, selectError, selectLoading} from "../redux/user/selectors.js";
-import {deleteUser, updateUser} from "../redux/user/api.js";
+import {deleteUser, signOut, updateUser} from "../redux/user/api.js";
 
 // firebase storage
 // allow read;
@@ -69,6 +69,10 @@ export default function Profile() {
 
     const handleDeleteUser = () => {
         dispatch(deleteUser({ id: currentUser._id }));
+    }
+
+    const handleSignOut = () => {
+        dispatch(signOut());
     }
 
     return (
@@ -140,7 +144,9 @@ export default function Profile() {
                 >
                     Delete account
                 </button>
-                <button className='text-red-700 cursor-pointer hover:underline'>Sign out</button>
+                <button
+                    onClick={handleSignOut}
+                    className='text-red-700 cursor-pointer hover:underline'>Sign out</button>
             </div>
             <p className='text-red-700 mt-5'>{error ? error : ''}</p>
             {/*<p className='text-green-700 mt-5'>*/}
