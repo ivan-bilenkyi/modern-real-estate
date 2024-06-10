@@ -6,6 +6,7 @@ import {PrivateRoute} from "./components/PrivateRoute.jsx";
 import CreateListing from "./pages/CreateListing.jsx";
 import Listing from "./pages/Listing.jsx";
 import UpdateListing from "./pages/UpdateListing.jsx";
+import Search from "./pages/Search.jsx";
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const SignIn = lazy(() => import('./pages/SignIn.jsx'));
@@ -25,6 +26,7 @@ export default function App() {
                 <Route path="/create-listing" element={<PrivateRoute component={<CreateListing />} redirectTo="/sign-in" />} />
                 <Route path="/update-listing/:listingId" element={<PrivateRoute component={<UpdateListing />} redirectTo="/sign-in" />} />
                 <Route path="/about" element={<About />} />
+                <Route path='/search' element={<Search />} />
                 <Route path='/listing/:listingId' element={<Listing />} />
             </Route>
         </Routes>
