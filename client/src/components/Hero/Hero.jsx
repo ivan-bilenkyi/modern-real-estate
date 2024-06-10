@@ -9,7 +9,7 @@ export const Hero = () => {
                 place with ease
             </h1>
             <p className='text-gray-400 text-xs sm:text-sm'>
-                Ivan Estate is the best place to find your next perfect place to
+                Sahand Estate is the best place to find your next perfect place to
                 live.
                 <br/>
                 We have a wide range of properties for you to choose from.
