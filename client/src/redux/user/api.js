@@ -38,8 +38,6 @@ export const signInWithGoogle = createAsyncThunk(
 export const updateUser = createAsyncThunk(
     'user/updateUser',
     async ({ id, formData }, thunkAPI) => {
-        console.log(id);
-        console.log(formData);
         try {
             const result = await axios.post(`/api/user/update/${id}`, formData);
             return result.data;
