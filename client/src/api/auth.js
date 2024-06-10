@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const signup = async (formData) => {
     try {
-        const {data} = await axios.post('http://localhost:3000/api/auth/signup', formData);
+        const {data} = await axios.post('/api/auth/signup', formData);
         console.log(data)
         return data
     } catch (error) {
@@ -12,7 +12,7 @@ export const signup = async (formData) => {
 
 export const signin = async (formData) => {
     try {
-        const {data} = await axios.post('http://localhost:3000/api/auth/signin', formData);
+        const {data} = await axios.post('/api/auth/signin', formData);
         console.log(data)
         return data
     } catch (error) {

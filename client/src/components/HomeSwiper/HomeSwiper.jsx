@@ -11,7 +11,7 @@ export const HomeSwiper = () => {
     useEffect(() => {
         const fetchListings = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/listing/get?offer=true&limit=4');
+                const response = await axios.get('/api/listing/get?offer=true&limit=4');
                 setOfferListings(response.data);
             } catch (error) {
                 console.error(error);
@@ -21,7 +21,6 @@ export const HomeSwiper = () => {
         fetchListings();
     }, []);
 
-    console.log(offerListings)
     return (
         <Swiper navigation>
             {offerListings.map((listing) => (

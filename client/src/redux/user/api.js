@@ -9,7 +9,7 @@ export const signin = createAsyncThunk(
     'user/signin',
     async (formData, thunkAPI) => {
         try {
-            const result = await axios.post('http://localhost:3000/api/auth/signin', formData);
+            const result = await axios.post('/api/auth/signin', formData);
             return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -27,7 +27,7 @@ export const signInWithGoogle = createAsyncThunk(
             const user = await signInWithPopup(auth, provider);
             const { user: {displayName, email, photoURL} } = user;
 
-            const result = await axios.post('http://localhost:3000/api/auth/google', {displayName, email, photoURL});
+            const result = await axios.post('/api/auth/google', {displayName, email, photoURL});
             return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const updateUser = createAsyncThunk(
         console.log(id);
         console.log(formData);
         try {
-            const result = await axios.post(`http://localhost:3000/api/user/update/${id}`, formData);
+            const result = await axios.post(`/api/user/update/${id}`, formData);
             return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -53,7 +53,7 @@ export const deleteUser = createAsyncThunk(
     'user/deleteUser',
     async ({id}, thunkAPI) => {
         try {
-            const result = await axios.delete(`http://localhost:3000/api/user/delete/${id}`);
+            const result = await axios.delete(`/api/user/delete/${id}`);
             return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -65,7 +65,7 @@ export const signOut = createAsyncThunk(
     'user/signOut',
     async (_, thunkAPI) => {
         try {
-            const result = await axios('http://localhost:3000/api/auth/signout');
+            const result = await axios('/api/auth/signout');
             return result.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

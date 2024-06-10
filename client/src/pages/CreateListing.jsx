@@ -138,7 +138,7 @@ export default function CreateListing() {
             setLoading(true);
             setError(false);
 
-            const response = await axios.post('http://localhost:3000/api/listing/create', {
+            const response = await axios.post('/api/listing/create', {
                 ...formData,
                 userRef: currentUser._id,
             }, {

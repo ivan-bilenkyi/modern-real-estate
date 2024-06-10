@@ -12,9 +12,9 @@ export const HomeListings = () => {
         const fetchListings = async () => {
             try {
                 const [offerRes, rentRes, saleRes] = await Promise.all([
-                    axios.get('http://localhost:3000/api/listing/get?offer=true&limit=4'),
-                    axios.get('http://localhost:3000/api/listing/get?type=rent&limit=4'),
-                    axios.get('http://localhost:3000/api/listing/get?type=sale&limit=4')
+                    axios.get('/api/listing/get?offer=true&limit=4'),
+                    axios.get('/api/listing/get?type=rent&limit=4'),
+                    axios.get('/api/listing/get?type=sale&limit=4')
                 ]);
 
                 setOfferListings(offerRes.data);
