@@ -37,11 +37,11 @@ export const HomeListings = () => {
                         <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more
                             offers</Link>
                     </div>
-                    <div className='flex flex-wrap gap-4'>
+                    <ul className='flex flex-wrap gap-4'>
                         {offerListings.map((listing) => (
                             <ListingItem listing={listing} key={listing._id}/>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             )}
             {rentListings && rentListings.length > 0 && (
@@ -51,11 +51,11 @@ export const HomeListings = () => {
                         <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more
                             places for rent</Link>
                     </div>
-                    <div className='flex flex-wrap gap-4'>
+                    <ul className='flex flex-wrap gap-4'>
                         {rentListings.map((listing) => (
                             <ListingItem listing={listing} key={listing._id}/>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             )}
             {saleListings && saleListings.length > 0 && (
@@ -65,11 +65,11 @@ export const HomeListings = () => {
                         <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more
                             places for sale</Link>
                     </div>
-                    <div className='flex flex-wrap gap-4'>
+                    <ul className='flex flex-wrap gap-4'>
                         {saleListings.map((listing) => (
                             <ListingItem listing={listing} key={listing._id}/>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             )}
         </div>

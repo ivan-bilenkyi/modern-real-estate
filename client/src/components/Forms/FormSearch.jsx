@@ -24,7 +24,7 @@ export const FormSearch = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className='bg-slate-100 p-3 rounded-lg flex items-center'
+            className='hidden sm:inline bg-slate-100 p-3 rounded-lg flex items-center'
         >
             <input
             type='text'
